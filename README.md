@@ -4,28 +4,31 @@ Writeup for CTF tomghost avaiable on https://www.tryhackme.com (https://www.tryh
 
 The challange is to find the flags contained user.txt and root.txt
 
-First of all i will set nash variable for my ip and for victims ip so I will call them $V_IP (victims) $M_IP (my tryhackme vpn IP).
+First of all i will set bash variable for my ip and for victims ip so I will call them $V_IP (victims) $M_IP (my tryhackme vpn IP).
 
 I will nmap scan the machine (I'm root so the scan would be syn scan by default) saving the output in nmap_syn_def
 
 `nmap -A $V_IP -oN nmap_syn_def`
 
-Ouput is:
+Output is:
 
->PORT     STATE SERVICE    VERSION
->22/tcp   open  ssh        OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
->| ssh-hostkey: 
->|   2048 f3:c8:9f:0b:6a:c5:fe:95:54:0b:e9:e3:ba:93:db:7c (RSA)
->|   256 dd:1a:09:f5:99:63:a3:43:0d:2d:90:d8:e3:e1:1f:b9 (ECDSA)
->|_  256 48:d1:30:1b:38:6c:c6:53:ea:30:81:80:5d:0c:f1:05 (ED25519)
->53/tcp   open  tcpwrapped
->8009/tcp open  ajp13      Apache Jserv (Protocol v1.3)
->| ajp-methods: 
->|_  Supported methods: GET HEAD POST OPTIONS
->8080/tcp open  http       Apache Tomcat 9.0.30
->|_http-favicon: Apache Tomcat
->|_http-open-proxy: Proxy might be redirecting requests
->|_http-title: Apache Tomcat/9.0.30
+> 22/tcp   open  ssh        OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+> 
+> | ssh-hostkey: 
+> |   2048 f3:c8:9f:0b:6a:c5:fe:95:54:0b:e9:e3:ba:93:db:7c (RSA)
+> |   256 dd:1a:09:f5:99:63:a3:43:0d:2d:90:d8:e3:e1:1f:b9 (ECDSA)
+> |_  256 48:d1:30:1b:38:6c:c6:53:ea:30:81:80:5d:0c:f1:05 (ED25519)
+> 
+> 53/tcp   open  tcpwrapped
+> 
+> 8009/tcp open  ajp13      Apache Jserv (Protocol v1.3)
+> | ajp-methods: 
+> |_  Supported methods: GET HEAD POST OPTIONS
+> 
+> 8080/tcp open  http       Apache Tomcat 9.0.30
+> |_http-favicon: Apache Tomcat
+> |_http-open-proxy: Proxy might be redirecting requests
+> |_http-title: Apache Tomcat/9.0.30
 
 I will visit $V_IP:8080 and try to find hidden paths with dirb, but neither I found somethin useful neither I could access tomcat manager paths
 
