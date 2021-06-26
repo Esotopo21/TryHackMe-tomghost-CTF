@@ -40,13 +40,12 @@ using searchsploit i find a python script exploting this vulnerability, it requi
 
 It gives back some html containg some credentials:
 
-...
-  <display-name>Welcome to Tomcat</display-name>
-  <description>
-     Welcome to GhostCat
-	skyfu*k:<password>
-  </description>
-...
+> ...
+>  <description>
+>     Welcome to GhostCat
+>	skyfu*k:<password>
+>  </description>
+> ...
 
  Those are valid ssh credentials for $V_IP so I'll use them to gain first access.
   
